@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import banner from "../../assets/banner"
-import { Button, Container, Form, Input } from "../../components"
+import banner from "../../assets/banner.png"
+import { Button, Container, Form, Input, StyledLink } from "../../components"
 
 export default function Signin() {
     const [isLoading, setIsLoading] = useState(false)
@@ -26,6 +26,7 @@ export default function Signin() {
                 <Input type='password' placeholder='senha' name='password' onChange={handleChange} disabled={isLoading} required/>
                 <Button type="submit">Entrar</Button>
             </Form>
+            <StyledLink to='/'>Não possui cadastro? Clique aqui!</StyledLink>
         </Container>
     )
 }
