@@ -6,6 +6,9 @@ const Button = styled.button`
     height: 43px;
     background: #EA498F;
     border-radius: 30px;
+    border: none;
+    margin-top: 14px;
+    margin-bottom: 18px;
 
     font-weight: 800;
     font-size: 18px;
