@@ -1,5 +1,8 @@
-import { Container, Form, Input } from "../../components";
+import { Button, Container, Form, Input, StyledLink } from "../../components";
 import logo from "../../assets/logo.png"
+import { useState } from "react/cjs/react.development";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 export default function Signup() {
     const [formData, setFormData] = useState({name: '', email: '', password: '', cpf: ''})
@@ -15,12 +18,13 @@ export default function Signup() {
     }
     function handleSubmit(e){
         e.preventDefault()
+        //setIsDisabled(true)
         navigate("/login")
     }
     
     return (
         <Container>
-            <img src={logo}/>
+            <Img src={logo}/>
             <Form onSubmit={handleSubmit}>
                 <Input type="text" placeholder="Nome" name="name" onChange={handleData} value={formData.name} disabled={isDisabled} required/>
                 <Input type="email" placeholder="E-mail" name="email" onChange={handleData} value={formData.email} disabled={isDisabled} required/>
@@ -29,6 +33,12 @@ export default function Signup() {
                 <Input type="password" placeholder="Confirme a senha" name="password confirmation" onChange={handleConfirmation} value={passwordConfirmation.password} disabled={isDisabled} required/>
                 <Button type="submit" disabled={isDisabled}>Cadastrar</Button>
             </Form>
+            <StyledLink to='/login'>Já possui cadastro? Clique aqui!</StyledLink>
         </Container>
     )
 }
+
+const Img = styled.img`
+    margin-top: 103px;
+    margin-bottom: 11px;
+`

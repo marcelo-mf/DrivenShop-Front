@@ -4,7 +4,7 @@ import banner from "../../assets/banner.png"
 import { Button, Container, Form, Input, StyledLink } from "../../components"
 
 export default function Signin() {
-    const [isLoading, setIsLoading] = useState(false)
+    const [isDisabled, setIsDisabled] = useState(false)
     const [formData, setFormData] = useState({email: '', password: ''})
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ export default function Signin() {
 
     function handleSubmit(e){
         e.preventDefault()
-        //setIsLoading(true)
+        //setIsDisabled(true)
         navigate('/')
     }
 
@@ -22,9 +22,9 @@ export default function Signin() {
         <Container>
             <img src={banner}/>
             <Form onSubmit={handleSubmit}>
-                <Input type='email' placeholder='email' name='email' value={formData.email} onChange={handleChange} disabled={isLoading} required/>
-                <Input type='password' placeholder='senha' name='password' value={formData.password} onChange={handleChange} disabled={isLoading} required/>
-                <Button type="submit">Entrar</Button>
+                <Input type='email' placeholder='email' name='email' value={formData.email} onChange={handleChange} disabled={isDisabled} required/>
+                <Input type='password' placeholder='senha' name='password' value={formData.password} onChange={handleChange} disabled={isDisabled} required/>
+                <Button type="submit" disabled={isDisabled}>Entrar</Button>
             </Form>
             <StyledLink to='/signup'>Não possui cadastro? Clique aqui!</StyledLink>
         </Container>
