@@ -57,10 +57,74 @@ const StyledLink2 = styled(Link)`
     color: #FFFFFF;
 `
 
+const Container3 = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+`
+
+const Container4 = styled.div`
+    img {
+        width: 133px;
+        height: 121px;
+        border-radius: 12px;
+    }
+`
+
+const Container5 = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 172px;
+    height: 121px;
+    justify-content: space-between;
+`
+
+const Container6 = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+
+    p {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        color: #9B9B9B;
+    }
+`
+
+const Name = styled.p`
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+`
+
+const Button2 = styled.button`
+    width: 90px;
+    height: 23px;
+    background: #FF6D6D;
+    border-radius: 8px;
+    border: none;
+
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFFFFF;
+`
 
 export {
     Header,
     Container2,
     Subtotal,
-    StyledLink2
+    StyledLink2,
+    Container3,
+    Container4,
+    Container5,
+    Container6,
+    Name,
+    Button2
 }
