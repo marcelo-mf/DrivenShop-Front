@@ -31,7 +31,7 @@ export default function Signup() {
                 <Input type="text" placeholder="CPF" name="cpf" onChage={handleData} value={formData.cpf} disabled={isDisabled} required/>
                 <Input type="password" placeholder="Senha" name="password" onChange={handleData} value={formData.password} disabled={isDisabled} required/>
                 <Input type="password" placeholder="Confirme a senha" name="password confirmation" onChange={handleConfirmation} value={passwordConfirmation.password} disabled={isDisabled} required/>
-                <Button type="submit" disabled={isDisabled}>Cadastrar</Button>
+                <Button type="submit" disabled={isDisabled}>CADASTRAR</Button>
             </Form>
             <StyledLink to='/login'>Já possui cadastro? Clique aqui!</StyledLink>
         </Container>
