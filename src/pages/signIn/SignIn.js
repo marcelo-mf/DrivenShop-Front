@@ -22,11 +22,11 @@ export default function Signin() {
         <Container>
             <img src={banner}/>
             <Form onSubmit={handleSubmit}>
-                <Input type='email' placeholder='email' name='email'onChange={handleChange} disabled={isLoading} required/>
-                <Input type='password' placeholder='senha' name='password' onChange={handleChange} disabled={isLoading} required/>
+                <Input type='email' placeholder='email' name='email' value={formData.email} onChange={handleChange} disabled={isLoading} required/>
+                <Input type='password' placeholder='senha' name='password' value={formData.password} onChange={handleChange} disabled={isLoading} required/>
                 <Button type="submit">Entrar</Button>
             </Form>
-            <StyledLink to='/'>Não possui cadastro? Clique aqui!</StyledLink>
+            <StyledLink to='/signup'>Não possui cadastro? Clique aqui!</StyledLink>
         </Container>
     )
 }
