@@ -61,6 +61,7 @@ const Container3 = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 26px;
 `
 
 const Container4 = styled.div`

@@ -5,7 +5,7 @@ import { Container2, Header, StyledLink2, Subtotal } from "./style";
 
 
 export default function Cart() {
-    const x = [{name: 'Módulo 2 - Front-end com interfaces dinâmicas', price: '299,90', image: 'https://commons.wikimedia.org/wiki/File:Gull_portrait_ca_usa.jpg' , description:'skfnlsnfslnf'}]
+    const x = [{name: 'Módulo 2 - Front-end com interfaces dinâmica', price: '299,90', image: 'https://i.imgur.com/G3SMzTe.png' , description:'skfnlsnfslnf'},{name: 'Módulo 2 - Front-end com interfaces dinâmicas', price: '299,90', image: 'https://i.imgur.com/G3SMzTe.png' , description:'skfnlsnfslnf'}]
     const [order, setOrder] = useState(x)
     const [total, setTotal] = useState(0)
 
