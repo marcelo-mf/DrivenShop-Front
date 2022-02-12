@@ -24,7 +24,7 @@ export default function Signin() {
             <Form onSubmit={handleSubmit}>
                 <Input type='email' placeholder='email' name='email' value={formData.email} onChange={handleChange} disabled={isDisabled} required/>
                 <Input type='password' placeholder='senha' name='password' value={formData.password} onChange={handleChange} disabled={isDisabled} required/>
-                <Button type="submit" disabled={isDisabled}>Entrar</Button>
+                <Button type="submit" disabled={isDisabled}>ENTRAR</Button>
             </Form>
             <StyledLink to='/signup'>Não possui cadastro? Clique aqui!</StyledLink>
         </Container>
