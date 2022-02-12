@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Header = styled.div`
+const HeaderCart = styled.div`
     display: flex;
     flex-direction: column;
     font-weight: bold;
@@ -118,7 +118,7 @@ const Button2 = styled.button`
 `
 
 export {
-    Header,
+    HeaderCart,
     Container2,
     Subtotal,
     StyledLink2,

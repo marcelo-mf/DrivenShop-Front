@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Container } from "../../components";
 import Product from "./Product";
-import { Container2, Header, StyledLink2, Subtotal } from "./style";
+import { Container2, HeaderCart, StyledLink2, Subtotal } from "./style";
 
 
 export default function Cart() {
     const x = [{name: 'Módulo 2 - Front-end com interfaces dinâmica', price: '299,90', image: 'https://i.imgur.com/G3SMzTe.png' , description:'skfnlsnfslnf'},{name: 'Módulo 2 - Front-end com interfaces dinâmicas', price: '299,90', image: 'https://i.imgur.com/G3SMzTe.png' , description:'skfnlsnfslnf'}]
     const [order, setOrder] = useState(x)
     const [total, setTotal] = useState(0)
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -28,12 +30,21 @@ export default function Cart() {
         setTotal(sum)
     }, [])
 
+    function checkCart() {
+        if (order.length === 0) {
+            alert('Seu carrinho está vazio')
+            return
+        } else {
+            navigate('/checkout')
+        }
+    }
+
     return(
         <Container>
-            <Header>
+            <HeaderCart>
                 Meu carrinho
                 <p>{order.length} itens</p>
-            </Header>
+            </HeaderCart>
             <Container2>
                 {order.length === 0
                 ? <Container><p>Seu carrinho está vazio</p></Container>
@@ -43,7 +54,7 @@ export default function Cart() {
                 <p>TOTAL</p>
                 <p>R$ {total}</p>
             </Subtotal>
-            <StyledLink2 to='/'>IR PARA PAGAMENTO</StyledLink2>
+            <StyledLink2 to={checkCart}>IR PARA PAGAMENTO</StyledLink2>
         </Container>
     )
 }
