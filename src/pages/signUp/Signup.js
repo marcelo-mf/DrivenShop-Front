@@ -28,7 +28,7 @@ export default function Signup() {
             <Form onSubmit={handleSubmit}>
                 <Input type="text" placeholder="Nome" name="name" onChange={handleData} value={formData.name} disabled={isDisabled} required/>
                 <Input type="email" placeholder="E-mail" name="email" onChange={handleData} value={formData.email} disabled={isDisabled} required/>
-                <Input type="text" placeholder="CPF" name="cpf" onChage={handleData} value={formData.cpf} disabled={isDisabled} required/>
+                <Input type="text" placeholder="CPF" name="cpf" onChange={handleData} value={formData.cpf} disabled={isDisabled} required/>
                 <Input type="password" placeholder="Senha" name="password" onChange={handleData} value={formData.password} disabled={isDisabled} required/>
                 <Input type="password" placeholder="Confirme a senha" name="password confirmation" onChange={handleConfirmation} value={passwordConfirmation.password} disabled={isDisabled} required/>
                 <Button type="submit" disabled={isDisabled}>CADASTRAR</Button>
