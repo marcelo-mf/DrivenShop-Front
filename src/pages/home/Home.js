@@ -9,10 +9,16 @@ export default function Home() {
 
     const [categorySelected, setCategorySelected] = useState('back');
     const [products, setProducts] = useState([]);
+    const [showProducts, setShowProducts] = useState(showInicialy);
+    const { token, name, order, setOrder } = useContext(AuthContext);
+    const [isAdded, setIsAdded] = useState(false)
+    const navigate = useNavigate();
+
+    const config = {headers: {"Authorization": `Bearer ${token}`}};
 
     useEffect(() => {
         
-        const promise = axios.get('https://drivenshop.herokuapp.com/list', config);
+        const promise = axios.get('https://drivenshop.herokuapp.com/products', config);
 
         promise.then(response => {
 
@@ -21,8 +27,7 @@ export default function Home() {
         promise.catch(console.log('erro'));
     }, []);
     
-
-    const navigate = useNavigate();
+    const showInicialy = products.filter(product => product.type === 'back');
 
     function selectCategory(category) {
 
@@ -30,7 +35,12 @@ export default function Home() {
             return
         }
 
+        setShowProducts(products.filter(product => product.type === category));
         setCategorySelected(category);
+    }
+
+    function addToCart(product) {
+        setOrder([...order, product])
     }
 
     return(
@@ -62,8 +72,8 @@ export default function Home() {
                 </div>
             </ContainerCursos>
             <div>
-                {products.map(product => (
-                    <Curso onClick={() => navigate('/produto')}>
+                {showProducts.map(product => (
+                    <Curso onClick={() => navigate('/produto/:idproduto')} key={product.id}>
                     <img src={product.image}/>
                     <div className="curso-rigth">
                         <div className="text-curso">
@@ -74,7 +84,7 @@ export default function Home() {
                                 <p>{product.time}</p>
                             </div>
                         </div>
-                        <CursoButton>Adicionar ao Carrinho</CursoButton>
+                        <CursoButton onClick={() => addToCart(product)} disabled={isAdded}>{isAdded ? 'Adicionado' : 'Adcionar ao carrinho'}</CursoButton>
                     </div>
                 </Curso>
                 ))}

@@ -6,9 +6,18 @@ import { useState } from 'react'
 
 export default function ProductPage() {
 
-    const [cartItens, setCartItens] = useState([]);
-
+    const [product, setProduct] = useState(null);    
+    const { order, setOrder } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const promise = axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/showtimes/${idSessao}/seats`);
+        promise.then(resposta => setProduct(resposta.data))
+    }, []); 
+
+    function addToCart(product) {
+        setOrder([...order, product])
+    }
 
     return( 
 
@@ -26,7 +35,7 @@ export default function ProductPage() {
                 <h3>Descrição</h3>
                 <p>fjdsnalkdfnslçdkfn slkdfnsldknf  lskdfnçslikdfnpsçildkn sldkfnspdlkfnspdlkfnçsl sdflinksdlfknslifdknsla skj,fbskjdbfiskdbf skjbdfjk</p>
             </ContainerDescricao>
-            <ProductPageButton>Adicionar ao carrinho</ProductPageButton>
+            <ProductPageButton onClick={() => addToCart(product)} disabled={isAdded}>{isAdded ? 'Adicionado' : 'Adcionar ao carrinho'}</ProductPageButton>
         </Container>
 
         
