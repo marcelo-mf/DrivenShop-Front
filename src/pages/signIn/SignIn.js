@@ -16,8 +16,11 @@ export default function Signin() {
     function handleSubmit(e){
         e.preventDefault()
         //setIsDisabled(true)
+<<<<<<< HEAD
         setName(response.data.name)
         setToken(response.data.token)
+=======
+>>>>>>> main
         navigate('/')
     }
 

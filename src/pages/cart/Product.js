@@ -14,7 +14,10 @@ export default function Product(props) {
                 i--
             }
         }
+<<<<<<< HEAD
         
+=======
+>>>>>>> main
         props.setOrder(placeholderList)
         let sum = 0
         for(let i = 0; i < placeholderList.length; i++) {
