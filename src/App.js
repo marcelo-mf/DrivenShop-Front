@@ -6,6 +6,7 @@ import ProductPage from "./pages/productPage/ProductPage";
 import Signup from "./pages/signUp/Signup";
 import Cart from "./pages/cart/Cart";
 import {useState} from 'react';
+import Checkout from "./pages/checkout/Checkout";
 
 export default function App() {
 
@@ -22,6 +23,7 @@ export default function App() {
                     <Route path='/' element={<Signin />}/>
                     <Route path='/signup' element={<Signup />}/>
                     <Route path='/cart' element={<Cart />}/>
+                    <Route path='/checkout' element={<Checkout />}/>
                 </Routes>
             </BrowserRouter>
         </AuthContext.Provider>
