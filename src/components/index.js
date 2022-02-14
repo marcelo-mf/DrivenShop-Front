@@ -10,6 +10,7 @@ import HeaderProduto from "./HeaderProduto"
 import ProductPageButton from "./ProductPageButton"
 import Curso from "./Curso"
 import CursoButton from "./CursoButton"
+import ContainerProduct from "./ContainerProduct"
 
 export {
     Button,
@@ -23,5 +24,6 @@ export {
     HeaderProduto,
     ProductPageButton,
     Curso,
-    CursoButton
+    CursoButton,
+    ContainerProduct
 }

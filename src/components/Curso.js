@@ -7,7 +7,7 @@ const Curso = styled.button`
     width: 336px;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     margin-top: 20px;

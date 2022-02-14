@@ -43,7 +43,7 @@ const Subtotal = styled.div`
     margin-bottom: 21px;
 `
 
-const StyledLink2 = styled(Link)`
+const Button3 = styled.button`
     width: 322px;
     height: 43px;
     background: #EA498F;
@@ -121,7 +121,7 @@ export {
     HeaderCart,
     Container2,
     Subtotal,
-    StyledLink2,
+    Button3,
     Container3,
     Container4,
     Container5,

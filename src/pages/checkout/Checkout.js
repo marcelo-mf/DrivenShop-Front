@@ -30,10 +30,10 @@ export default function Checkout() {
             return
         }
         setIsDisabled(true)
-        const promise = axios.post('https://driven-shop.herokuapp.com/driven-shop/order', order, config)
+        const promise = axios.post('http://localhost:5000/driven-shop/order', {order}, config)
         promise.then(response => {
             setIsDisabled(false)
-            navigate("/")
+            navigate("/home")
         })
         promise.catch(() => {
             setIsDisabled(false)
