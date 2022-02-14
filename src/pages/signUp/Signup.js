@@ -3,6 +3,7 @@ import logo from "../../assets/logo.png"
 import { useState } from "react/cjs/react.development";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import axios from "axios";
 
 export default function Signup() {
     const [formData, setFormData] = useState({name: '', email: '', password: '', cpf: ''})
@@ -18,8 +19,16 @@ export default function Signup() {
     }
     function handleSubmit(e){
         e.preventDefault()
-        //setIsDisabled(true)
-        navigate("/")
+        setIsDisabled(true)
+        const promise = axios.post('https://driven-shop.herokuapp.com/driven-shop/sign-up', formData)
+        promise.then(response => {
+            setIsDisabled(false)
+            navigate("/")
+        })
+        promise.catch(() => {
+            setIsDisabled(false)
+            return alert('Ocorreu um erro, tente novamente!')
+        })
     }
     
     return (

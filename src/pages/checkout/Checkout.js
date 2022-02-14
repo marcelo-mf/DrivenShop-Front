@@ -1,6 +1,8 @@
-import { useState } from "react";
+import axios from "axios";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Container, Form, Input } from "../../components";
+import AuthContext from "../../contexts/AuthContext";
 import { HeaderCheckout } from "./style";
 
 
@@ -10,6 +12,8 @@ export default function Checkout() {
     const navigate = useNavigate()
     const checkNumber = /^[0-9]{16}$/
     const checkSecurity = /^[0-9]{3}$/
+    const { order, token } = useContext(AuthContext)
+    const config = {headers: {"Authorization": `Bearer ${token}`}};
 
     function handleData(e){
         setFormData({...formData, [e.target.name]: e.target.value})
@@ -25,8 +29,16 @@ export default function Checkout() {
             alert('Digite um codigo de segurança valido')
             return
         }
-        //setIsDisabled(true)
-        navigate("/")
+        setIsDisabled(true)
+        const promise = axios.post('https://driven-shop.herokuapp.com/driven-shop/order', order, config)
+        promise.then(response => {
+            setIsDisabled(false)
+            navigate("/")
+        })
+        promise.catch(() => {
+            setIsDisabled(false)
+            return alert('Ocorreu um erro, tente novamente!')
+        })
     }
 
     return (

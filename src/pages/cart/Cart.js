@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container } from "../../components";
+import AuthContext from "../../contexts/AuthContext";
 import Product from "./Product";
 import { Container2, HeaderCart, StyledLink2, Subtotal } from "./style";
 
 
 export default function Cart() {
-    const x = [{name: 'Módulo 2 - Front-end com interfaces dinâmica', price: '299,90', image: 'https://i.imgur.com/G3SMzTe.png' , description:'skfnlsnfslnf'},{name: 'Módulo 2 - Front-end com interfaces dinâmicas', price: '299,90', image: 'https://i.imgur.com/G3SMzTe.png' , description:'skfnlsnfslnf'}]
-    const [order, setOrder] = useState(x)
+    const { order, setOrder } = useContext(AuthContext)
     const [total, setTotal] = useState(0)
     const navigate = useNavigate()
 
