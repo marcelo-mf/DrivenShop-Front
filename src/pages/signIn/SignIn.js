@@ -4,6 +4,7 @@ import banner from "../../assets/banner.png"
 import { Button, Container, Form, Input, StyledLink } from "../../components"
 import { useContext } from "react"
 import AuthContext from "../../contexts/AuthContext"
+import axios from "axios"
 
 export default function Signin() {
     const [isDisabled, setIsDisabled] = useState(false)
@@ -17,10 +18,18 @@ export default function Signin() {
 
     function handleSubmit(e){
         e.preventDefault()
-        //setIsDisabled(true)
-        //setName(response.data.name);
-        //setToken(response.data.token);
-        navigate('/home');
+        setIsDisabled(true)
+        const promise = axios.post('https://driven-shop.herokuapp.com/driven-shop/sign-in', formData)
+        promise.then(response => {
+            setName(response.data.name);
+            setToken(response.data.token);
+            setIsDisabled(false)
+            navigate('/home');
+        })
+        promise.catch(() => {
+            setIsDisabled(false)
+            return alert('Aconteceu um erro, tente novamente!')
+        })
     }
 
     return (
