@@ -2,10 +2,13 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import banner from "../../assets/banner.png"
 import { Button, Container, Form, Input, StyledLink } from "../../components"
+import { useContext } from "react"
+import AuthContext from "../../contexts/AuthContext"
 
 export default function Signin() {
     const [isDisabled, setIsDisabled] = useState(false)
     const [formData, setFormData] = useState({email: '', password: ''})
+    const { setToken, setName } = useContext(AuthContext);
     const navigate = useNavigate()
 
     function handleChange(e){
@@ -15,7 +18,9 @@ export default function Signin() {
     function handleSubmit(e){
         e.preventDefault()
         //setIsDisabled(true)
-        navigate('/')
+        //setName(response.data.name);
+        //setToken(response.data.token);
+        navigate('/home');
     }
 
     return (

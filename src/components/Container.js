@@ -8,6 +8,14 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .product-image{
+        height: 219px;
+        width: 336px;
+
+        border-radius: 10px;
+    }
+    
 `
 
 export default Container
