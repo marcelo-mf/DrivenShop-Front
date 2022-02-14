@@ -19,7 +19,7 @@ export default function Signup() {
     function handleSubmit(e){
         e.preventDefault()
         //setIsDisabled(true)
-        navigate("/login")
+        navigate("/")
     }
     
     return (
@@ -33,7 +33,7 @@ export default function Signup() {
                 <Input type="password" placeholder="Confirme a senha" name="password confirmation" onChange={handleConfirmation} value={passwordConfirmation.password} disabled={isDisabled} required/>
                 <Button type="submit" disabled={isDisabled}>CADASTRAR</Button>
             </Form>
-            <StyledLink to='/login'>Já possui cadastro? Clique aqui!</StyledLink>
+            <StyledLink to='/'>Já possui cadastro? Clique aqui!</StyledLink>
         </Container>
     )
 }

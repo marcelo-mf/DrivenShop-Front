@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import banner from "../../assets/banner.png"
 import { Button, Container, Form, Input, StyledLink } from "../../components"
+import { useContext } from "react"
+import AuthContext from "../../contexts/AuthContext"
 
 export default function Signin() {
     const [isDisabled, setIsDisabled] = useState(false)
@@ -16,12 +18,9 @@ export default function Signin() {
     function handleSubmit(e){
         e.preventDefault()
         //setIsDisabled(true)
-<<<<<<< HEAD
-        setName(response.data.name)
-        setToken(response.data.token)
-=======
->>>>>>> main
-        navigate('/')
+        //setName(response.data.name);
+        //setToken(response.data.token);
+        navigate('/home');
     }
 
     return (

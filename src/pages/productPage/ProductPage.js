@@ -1,17 +1,22 @@
-import { Cart, ArrowBackOutline } from 'react-ionicons'
-import { ContainerDescricao, HeaderProduto, Container, ProductPageButton } from '../../components'
-import banner from "../../assets/bannerhome.png"
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { Cart, ArrowBackOutline } from 'react-ionicons';
+import { ContainerDescricao, HeaderProduto, Container, ProductPageButton } from '../../components';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import AuthContext from '../../contexts/AuthContext';
+import axios from 'axios';
+
 
 export default function ProductPage() {
 
-    const [product, setProduct] = useState(null);    
+    const [product, setProduct] = useState([]); 
+    const [isAdded, setIsAdded] = useState(false);    
     const { order, setOrder } = useContext(AuthContext);
+    const {productId} = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const promise = axios.get(`https://mock-api.driven.com.br/api/v4/cineflex/showtimes/${idSessao}/seats`);
+        const promise = axios.get(`http://localhost:5000/produto/${productId}`);
         promise.then(resposta => setProduct(resposta.data))
     }, []); 
 
@@ -28,18 +33,15 @@ export default function ProductPage() {
                     <Cart color='#626060' height='20px' width='20px' cssClasses='ion-icon' onClick={() => navigate('/')}/>
                  </div>
             </HeaderProduto>
-            <img src={banner}/>y
+            <img classname="product-image" src={product.image}/>
             <ContainerDescricao>
-                <h1>Módulo 2 - Front-end com interfaces dinâmicas</h1>
-                <h2>R$ 299,90</h2>
+                <h1>{product.name}</h1>
+                <h2>{product.price}</h2>
                 <h3>Descrição</h3>
-                <p>fjdsnalkdfnslçdkfn slkdfnsldknf  lskdfnçslikdfnpsçildkn sldkfnspdlkfnspdlkfnçsl sdflinksdlfknslifdknsla skj,fbskjdbfiskdbf skjbdfjk</p>
+                <p>{product.description}</p>
             </ContainerDescricao>
             <ProductPageButton onClick={() => addToCart(product)} disabled={isAdded}>{isAdded ? 'Adicionado' : 'Adcionar ao carrinho'}</ProductPageButton>
         </Container>
-
-        
-       
 
     )
 }

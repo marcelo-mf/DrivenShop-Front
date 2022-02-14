@@ -2,14 +2,13 @@ import styled from "styled-components"
 
 const ContainerDescricao = styled.div`
     
-    width: 100%;
+    width: 336px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 
-    margin-left: 35px;
     margin-top: 20px;
 
     gap: 5px;
@@ -34,6 +33,7 @@ const ContainerDescricao = styled.div`
         font-weight: bolder;
         font-family: 'Roboto';
         color: black;
+        margin-top: 10px;
     }
 
     p{
@@ -42,7 +42,7 @@ const ContainerDescricao = styled.div`
         font-family: 'Roboto';
         color: black;
 
-        margin-top: 10px;
+        margin-top: 5px;
     }
 
 

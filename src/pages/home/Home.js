@@ -3,13 +3,15 @@ import banner from "../../assets/bannerhome.png"
 import logo from "../../assets/logo.png"
 import { Cart } from 'react-ionicons'
 import { Header, Container, ContainerCursos, Curso, CursoButton } from "../../components";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import AuthContext from "../../contexts/AuthContext";
 
 export default function Home() {
 
-    const [categorySelected, setCategorySelected] = useState('back');
     const [products, setProducts] = useState([]);
-    const [showProducts, setShowProducts] = useState(showInicialy);
+    const [categorySelected, setCategorySelected] = useState('back');
+    const [showProducts, setShowProducts] = useState(products.filter(product => product.type === 'back'));
     const { token, name, order, setOrder } = useContext(AuthContext);
     const [isAdded, setIsAdded] = useState(false)
     const navigate = useNavigate();
@@ -18,16 +20,16 @@ export default function Home() {
 
     useEffect(() => {
         
-        const promise = axios.get('https://drivenshop.herokuapp.com/products', config);
+        const promise = axios.get('http://localhost:5000/home')//, config);
 
         promise.then(response => {
 
             setProducts(response.data);
         })
         promise.catch(console.log('erro'));
-    }, []);
+    }, [showProducts]);
     
-    const showInicialy = products.filter(product => product.type === 'back');
+    
 
     function selectCategory(category) {
 
@@ -73,7 +75,7 @@ export default function Home() {
             </ContainerCursos>
             <div>
                 {showProducts.map(product => (
-                    <Curso onClick={() => navigate('/produto/:idproduto')} key={product.id}>
+                    <Curso onClick={() => navigate(`/produto/${product.id}`)} key={product._id}>
                     <img src={product.image}/>
                     <div className="curso-rigth">
                         <div className="text-curso">
@@ -84,11 +86,9 @@ export default function Home() {
                                 <p>{product.time}</p>
                             </div>
                         </div>
-                        <CursoButton onClick={() => addToCart(product)} disabled={isAdded}>{isAdded ? 'Adicionado' : 'Adcionar ao carrinho'}</CursoButton>
                     </div>
                 </Curso>
-                ))}
-                
+                ))} 
             </div>
         </Container>
     )
