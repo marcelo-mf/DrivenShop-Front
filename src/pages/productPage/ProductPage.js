@@ -16,7 +16,7 @@ export default function ProductPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const promise = axios.get(`http://localhost:5000/produto/${productId}`);
+        const promise = axios.get(`https://driven-shop.herokuapp.com/produto/${productId}`);
         promise.then(resposta => setProduct(resposta.data))
     }, []); 
 

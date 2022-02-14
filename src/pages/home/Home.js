@@ -20,7 +20,7 @@ export default function Home() {
 
     useEffect(() => {
         
-        const promise = axios.get('http://localhost:5000/home')//, config);
+        const promise = axios.get('https://driven-shop.herokuapp.com/home')//, config);
 
         promise.then(response => {
 

@@ -9,7 +9,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
 
-    img{
+    .product-image{
         height: 219px;
         width: 336px;
 
