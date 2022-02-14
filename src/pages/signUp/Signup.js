@@ -20,7 +20,7 @@ export default function Signup() {
     function handleSubmit(e){
         e.preventDefault()
         setIsDisabled(true)
-        const promise = axios.post('https://driven-shop.herokuapp.com/driven-shop/sign-up', formData)
+        const promise = axios.post('http://localhost:5000/driven-shop/sign-up', formData)
         promise.then(response => {
             setIsDisabled(false)
             navigate("/")

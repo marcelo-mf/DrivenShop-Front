@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Container = styled.div`
+const ContainerProduct = styled.div`
     height: 100%;
     width: 100%;
 
@@ -9,6 +9,13 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
 
+    img{
+        height: 219px;
+        width: 336px;
+
+        border-radius: 10px;
+    }
+    
 `
 
-export default Container
+export default ContainerProduct

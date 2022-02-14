@@ -20,7 +20,7 @@ export default function Home() {
 
     useEffect(() => {
         
-        const promise = axios.get('https://driven-shop.herokuapp.com/home')//, config);
+        const promise = axios.get('http://localhost:5000/home')//, config);
 
         promise.then(response => {
 
@@ -50,8 +50,8 @@ export default function Home() {
             <Header>
                 <img src={logo}/>
                 <div className="rigth-container">
-                    <div className="sign-in" onClick={() => navigate('/Login')}>
-                        <p>Sign In</p>
+                    <div className="sign-in">
+                        <p>{name}</p>
                     </div>
                     <div className="carrinho">
                         <Cart color='#626060' height='20px' width='20px' cssClasses='ion-icon'/>

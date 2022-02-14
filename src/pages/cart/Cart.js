@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Container } from "../../components";
 import AuthContext from "../../contexts/AuthContext";
 import Product from "./Product";
-import { Container2, HeaderCart, StyledLink2, Subtotal } from "./style";
+import { Button3, Container2, HeaderCart, Subtotal } from "./style";
 
 
 export default function Cart() {
@@ -54,7 +54,7 @@ export default function Cart() {
                 <p>TOTAL</p>
                 <p>R$ {total}</p>
             </Subtotal>
-            <StyledLink2 to={checkCart}>IR PARA PAGAMENTO</StyledLink2>
+            <Button3 onClick={checkCart}>IR PARA PAGAMENTO</Button3>
         </Container>
     )
 }
